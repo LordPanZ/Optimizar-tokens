@@ -26,7 +26,7 @@ aplicando lo que ya está decidido.
 ```bash
 git clone https://github.com/LordPanZ/Optimizar-tokens.git
 cd Optimizar-tokens
-./install.sh
+bash install.sh
 ```
 
 El script copia los cuatro `.md` a `~/.claude/agents/` y añade el bloque de
