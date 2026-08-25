@@ -1,4 +1,8 @@
-<!-- BEGIN: enrutado-subagentes -->
+---
+name: enrutado
+description: Decide qué subagente hace cada tarea antes de empezar a trabajar — explorador para buscar y leer, verificador para tests, ejecutor para cambios ya decididos, arquitecto para diseñar. Úsala al arrancar cualquier tarea que implique buscar en un repo, correr tests, tocar varios archivos o planificar un cambio grande.
+---
+
 ## Enrutado de subagentes (optimización de tokens)
 
 Antes de ponerte a trabajar, decide **quién** hace la tarea. Delegar mantiene el
@@ -29,4 +33,3 @@ contexto: el subagente trabaja en el suyo y aquí solo vuelve su conclusión.
    ruta base, qué buscar, en qué formato responder. No hereda esta conversación.
 7. **No delegues lo trivial.** Arrancar un subagente cuesta; para un cambio de
    dos líneas en un archivo que ya tienes abierto, sale más caro que hacerlo.
-<!-- END: enrutado-subagentes -->

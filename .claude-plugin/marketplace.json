@@ -1,0 +1,15 @@
+{
+  "name": "optimizar-tokens",
+  "description": "Subagentes especializados para Claude Code que reducen el consumo de tokens delegando las lecturas amplias y las salidas de test a contextos aparte.",
+  "owner": {
+    "name": "LordPanZ",
+    "url": "https://github.com/LordPanZ"
+  },
+  "plugins": [
+    {
+      "name": "optimizar-tokens",
+      "source": "./plugins/optimizar-tokens",
+      "description": "Cuatro subagentes con contexto propio para que las búsquedas amplias, las suites de tests y los cambios repetitivos no llenen el contexto principal."
+    }
+  ]
+}

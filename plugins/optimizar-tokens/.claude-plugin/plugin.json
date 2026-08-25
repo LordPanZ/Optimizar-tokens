@@ -1,0 +1,12 @@
+{
+  "name": "optimizar-tokens",
+  "displayName": "Optimizar tokens",
+  "description": "Cuatro subagentes con contexto propio —explorador, verificador, ejecutor y arquitecto— más una skill de enrutado que decide a quién delegar cada tarea.",
+  "version": "1.0.0",
+  "author": {
+    "name": "LordPanZ",
+    "url": "https://github.com/LordPanZ"
+  },
+  "repository": "https://github.com/LordPanZ/Optimizar-tokens",
+  "keywords": ["tokens", "subagentes", "contexto", "delegacion"]
+}
