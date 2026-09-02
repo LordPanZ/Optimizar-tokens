@@ -1,0 +1,16 @@
+{
+  "description": "Inyecta el enrutado de subagentes en cada turno, para que la delegación sea automática y no dependa de que el usuario nombre al agente.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '%s\\n' '[optimizar-tokens] Enrutado de subagentes — decide esto ANTES de ponerte a trabajar.' 'Tienes cuatro subagentes, cada uno con su propia ventana de contexto:' '- explorador: localizar código o entender cómo funciona algo. Úsalo para CUALQUIER búsqueda que vaya a tocar más de dos archivos.' '- verificador: ejecutar tests, lint o typecheck. Devuelve solo los fallos.' '- ejecutor: aplicar en varios archivos un cambio que ya está decidido.' '- arquitecto: diseñar un cambio grande o comparar enfoques, en solo lectura.' 'Regla dura: si no sabes dónde está algo, delega en el explorador en lugar de buscarlo tú.' 'Hacerlo tú con grep o Read NO sale más barato: esa salida entra en ESTE contexto y ya no se va. El subagente se la come en el suyo y aquí solo vuelve la conclusión.' 'Única excepción: no delegues cambios de una o dos líneas en archivos que ya tienes leídos.'",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
