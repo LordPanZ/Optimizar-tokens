@@ -94,6 +94,45 @@ ventana. En una pregunta suelta y corta, no notarás nada bueno.
 El hook cuesta ~160 tokens por turno, siempre, delegues o no. Es el precio de
 que sea automático.
 
+## Opcional: auditoría con Codex
+
+Los cuatro agentes mantienen el ruido fuera del contexto; no revisan el trabajo
+con ojos distintos. Para eso se puede añadir el plugin oficial de OpenAI,
+[`openai/codex-plugin-cc`](https://github.com/openai/codex-plugin-cc), que lanza
+Codex desde dentro de Claude Code. Es independiente de este plugin: no hace
+falta para nada de lo anterior.
+
+```shell
+/plugin marketplace add openai/codex-plugin-cc
+/plugin install codex@openai-codex
+/reload-plugins
+/codex:setup
+```
+
+Necesita Node 18.18 o superior y una cuenta de ChatGPT (vale la gratuita) o una
+clave de API de OpenAI. Si Codex no está instalado, `/codex:setup` ofrece
+instalarlo; si falta el inicio de sesión, ejecuta `!codex login`.
+
+Flujo sugerido, con cada paso en su sitio:
+
+1. `arquitecto` devuelve el plan.
+2. `ejecutor` lo aplica.
+3. `verificador` confirma que tests y lint pasan.
+4. `/codex:adversarial-review` cuestiona el enfoque y no solo el código
+   (`/codex:review` para una revisión más corriente; `--background` para que no
+   bloquee).
+5. Se corrige lo que salga y se vuelve al paso 3.
+
+Cosas a tener en cuenta:
+
+- Codex gasta tus límites de Codex y Claude los de Claude; no comparten cuota.
+- Desactiva el *review gate* (`/codex:setup --enable-review-gate`) al
+  principio: lanza a Codex tras cada respuesta de Claude y agota los límites
+  rápido.
+- La revisión es un paso explícito que lanzas tú. No se ha añadido al hook ni a
+  la skill `enrutado` a propósito: ambos se pagan en cada turno, y quien no usa
+  Codex no tiene por qué cargar con ese texto.
+
 ## Estructura
 
 ```
